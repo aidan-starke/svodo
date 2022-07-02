@@ -13,7 +13,7 @@
 >
 	<TodoForm />
 	<ul class="items-center justify-center block m-auto space-y-4 py-4 px-6">
-		{#each $todos as todo}
+		{#each $todos as todo (todo.id)}
 			<li
 				class="flex items-center text-white border-b-2 rounded-lg border-pink-200 pb-2 hover:border-pink-400 px-2"
 				transition:fade
