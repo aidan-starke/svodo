@@ -1,14 +1,15 @@
 <script lang="ts">
-	import { onMount } from "svelte";
-	import { todos, loadTodos } from "$lib/stores/todos";
+	import clsx from "clsx";
+	import { todos, metaMaskAccount } from "$lib/stores";
 	import { TodoForm, TodoItem } from "$lib/components";
 	import { fade } from "svelte/transition";
-
-	onMount(() => loadTodos());
 </script>
 
 <div
-	class="w-4/5 m-auto text-sans rounded-lg font-fira space-y-10 bg-black/20 p-10 border-opacity-20 border-black/10"
+	class={clsx(
+		$metaMaskAccount ? "space-y-10" : "pt-10",
+		"w-4/5 m-auto text-sans rounded-lg font-fira bg-black/20 p-10 border-opacity-20 border-black/10"
+	)}
 >
 	<TodoForm />
 	<ul class="items-center justify-center block m-auto space-y-4 py-4 px-6">

@@ -5,18 +5,21 @@ import { writable } from "svelte/store";
 
 export const todos = writable<Todos>([]);
 
-export const loadTodos = async () => {
-	const { data, error } = await supabase.from("todos").select();
+export const loadTodos = async (metamask_account: string) => {
+	const { data, error } = await supabase
+		.from("todos")
+		.select()
+		.match({ metamask_account });
 
 	if (error) return console.error(error);
 
 	todos.set(data);
 };
 
-export const addTodo = async (text: string) => {
+export const addTodo = async (text: string, metamask_account: string) => {
 	const { data, error } = await supabase
 		.from("todos")
-		.insert([{ text, id: Date.now() }]);
+		.insert([{ text, id: Date.now(), metamask_account }]);
 
 	if (error) return console.error(error);
 
