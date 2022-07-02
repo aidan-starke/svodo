@@ -1,6 +1,7 @@
 import type { MetaMaskInpageProvider } from "@metamask/providers";
 
 import { writable } from "svelte/store";
+import { loadTodos } from "$lib/stores";
 
 export const extension = writable<MetaMaskInpageProvider>();
 
@@ -14,4 +15,10 @@ export const connectWallet = async (extension: MetaMaskInpageProvider) => {
 	})) as string[];
 
 	metaMaskAccount.set(accounts[0]);
+};
+
+export const onAccountsChanged = (accounts: unknown) => {
+	const account = (accounts as string[])[0];
+	metaMaskAccount.set(account);
+	loadTodos(account);
 };
