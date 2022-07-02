@@ -28,7 +28,8 @@
 			id="todo"
 			type="text"
 			bind:value={todo}
-			placeholder="Enter todo..."
+			disabled={!$metaMaskAccount}
+			placeholder={!$metaMaskAccount ? "Connect wallet..." : "Enter todo..."}
 			class="px-4 py-2 w-full border border-pink-400 shadow-sm rounded appearance-none focus:border-pink-400 focus:outline-none shadow focus:border-2 duration-300 bg-transparent text-white"
 		/>
 	</div>
