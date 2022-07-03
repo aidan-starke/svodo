@@ -6,14 +6,18 @@
 	import detectEthereumProvider from "@metamask/detect-provider";
 
 	onMount(() => {
-		detectEthereumProvider({ mustBeMetaMask: true }).then((provider) =>
-			extension.set(provider as MetaMaskInpageProvider)
-		);
-	});
+		detectEthereumProvider({ mustBeMetaMask: true })
+			.then((provider) => {
+				const ethProvider = provider as MetaMaskInpageProvider;
 
-	$: {
-		$extension?.on("accountsChanged", onAccountsChanged);
-	}
+				extension.set(ethProvider);
+				ethProvider.on("accountsChanged", onAccountsChanged);
+			})
+			.catch((error) => {
+				console.info("MetaMask Error: ", error.message);
+				alert("Please install MetaMask to use Svodo");
+			});
+	});
 
 	onDestroy(() => {
 		$extension?.removeListener("accountsChanged", onAccountsChanged);

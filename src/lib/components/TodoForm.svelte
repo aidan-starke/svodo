@@ -6,6 +6,7 @@
 		extension,
 		loadTodos,
 	} from "$lib/stores";
+
 	let todo = "";
 
 	const onSubmit = () => {

@@ -31,18 +31,19 @@
 		{todo.text}
 	</p>
 {/if}
+
 {#if update}
 	<button type="button" class="todo-button" on:click={onUpdate}>submit</button>
 {:else if !todo.completed}
 	<button type="button" class="todo-button" on:click={() => (update = true)}
 		>update</button
 	>
-{/if}
-{#if todo.completed}
+{:else}
 	<button type="button" class="todo-button" on:click={() => removeTodo(todo.id)}
 		>remove</button
 	>
 {/if}
+
 <input
 	type="checkbox"
 	checked={todo.completed}

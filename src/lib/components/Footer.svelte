@@ -1,15 +1,17 @@
 <script>
 	import { GitHubIcon } from "$lib/icons";
+	import { BackDrop } from "$lib/components";
 </script>
 
-<div class="m-auto bg-black/5 w-1/5">
-	<div class="m-auto bg-black/10 w-4/5">
+<div class="text-center text-fira text-lg tracking-wide bottom-0 fixed w-full">
+	<BackDrop>
 		<a
 			href="https://github.com/aidan-starke/svodo"
 			rel="noreferrer"
 			target="_blank"
 			class="py-2 tracking-widest font-semibold text-pink-600 text-center font-fira flex items-center justify-center"
-			><GitHubIcon iconClass="mr-4" />GitHub</a
 		>
-	</div>
+			<GitHubIcon iconClass="mr-4" />GitHub
+		</a>
+	</BackDrop>
 </div>
