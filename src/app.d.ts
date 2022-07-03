@@ -8,7 +8,4 @@ declare namespace App {
 	// interface Platform {}
 	// interface Session {}
 	// interface Stuff {}
-	interface SvelteInputProps {
-		onclick_outside: () => boolean;
-	}
 }
