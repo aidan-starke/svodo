@@ -1,6 +1,6 @@
 {
-  "name": "svupabas",
-  "version": "0.0.1",
+  "name": "svodo",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "env-cmd svelte-kit dev",
