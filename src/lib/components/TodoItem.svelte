@@ -2,6 +2,7 @@
 	import type { Todo } from "$lib/types";
 
 	import clsx from "clsx";
+	import { marked } from "marked";
 	import { SyncLoader } from "svelte-loading-spinners";
 	import { clickOutside } from "$lib/utils/clickOutside";
 	import { removeTodo, updateTodo } from "$lib/stores/todos";
@@ -44,7 +45,7 @@
 			<SyncLoader size="30" color="#f472b6" duration="1s" />
 		{:else}
 			<p class={clsx(todo.completed && "line-through", "cursor-default")}>
-				{todo.text}
+				{@html marked.parse(todo.text)}
 			</p>
 		{/if}
 	</div>
