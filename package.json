@@ -17,7 +17,8 @@
     "@metamask/detect-provider": "^1.2.0",
     "@metamask/providers": "^9.0.0",
     "@supabase/supabase-js": "^1.35.4",
-    "clsx": "^1.1.1"
+    "clsx": "^1.1.1",
+    "svelte-loading-spinners": "^0.1.7"
   },
   "devDependencies": {
     "@metamask/types": "^1.1.0",
