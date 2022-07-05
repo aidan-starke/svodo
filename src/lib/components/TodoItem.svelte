@@ -3,6 +3,7 @@
 
 	import clsx from "clsx";
 	import { SyncLoader } from "svelte-loading-spinners";
+	import { clickOutside } from "$lib/utils/clickOutside";
 	import { removeTodo, updateTodo } from "$lib/stores/todos";
 
 	export let todo: Todo;
@@ -33,6 +34,8 @@
 		id="update-todo"
 		class="flex-1 appearance-none border-pink-200 focus:outline-none focus:border-pink-400 border-b rounded py-2 mr-2 bg-transparent"
 		value={inputValue}
+		use:clickOutside
+		on:click_outside={onUpdate}
 		on:change={(event) => (newTodo = event.currentTarget.value)}
 	/>
 {:else}
