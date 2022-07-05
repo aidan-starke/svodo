@@ -6,11 +6,14 @@
 	import { removeTodo, updateTodo } from "$lib/stores/todos";
 
 	export let todo: Todo;
-	let newTodo: string;
+	let busy: boolean;
 	let update = false;
+	let newTodo: string;
 
-	$: busy = !todo;
 	$: inputValue = todo.text || newTodo;
+	$: {
+		setTimeout(() => (busy = !todo), 1500);
+	}
 
 	const onToggle = () =>
 		updateTodo<boolean>(todo.id, "completed", !todo.completed);
